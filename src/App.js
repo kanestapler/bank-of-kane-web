@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import LineItem from './LineItem.js'
+import Outstanding from './Outstanding';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <LineItem />
+        <Outstanding/>
       </div>
     );
   }
