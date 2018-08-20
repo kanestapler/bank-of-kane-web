@@ -1,3 +1,7 @@
 .App {
-  text-align: center;
+    text-align: center;
+}
+
+.nav-link {
+    padding: 0px 5px;
 }
