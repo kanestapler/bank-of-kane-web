@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 const config = {
     apiKey: "AIzaSyBZg0gTnAxnqaV03jqiJvxPXYyVQb9yEtw",
     authDomain: "bank-of-kane.firebaseapp.com",
@@ -9,4 +10,8 @@ const config = {
     messagingSenderId: "1080191580860"
   };
 firebase.initializeApp(config);
+const auth = firebase.auth();
+export {
+  auth
+};
 export default firebase;
