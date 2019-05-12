@@ -1,11 +1,16 @@
 import React from 'react'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
 const Header = () => {
-  console.log('Index')
+  console.log('Header')
   return (
-    <div>
-      Hello Index
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6">
+          Photos
+        </Typography>
+      </Toolbar>
+    </AppBar>
   )
 }
 
