@@ -7,10 +7,14 @@ import Home from './Home'
 import './App.css'
 
 const App = () => (
-  <Router>
-    <Header />
-    <Route path="/" exact component={Home} />
-  </Router>
+  <>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <Router>
+      <Header />
+      <Route path="/" exact component={Home} />
+    </Router>
+  </>
 )
 
 export default App
