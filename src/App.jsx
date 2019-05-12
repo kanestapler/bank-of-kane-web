@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app'
 import theme from './Theme'
 import Header from './Header'
 import Home from './Home'
+import Admin from './Admin'
 
 import './App.css'
 
@@ -31,6 +32,7 @@ const App = () => (
       <Router>
         <Header />
         <Route path="/" exact component={Home} />
+        <Route path="/admin" exact component={Admin} />
       </Router>
     </MuiThemeProvider>
   </>
