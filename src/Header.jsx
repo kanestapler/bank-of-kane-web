@@ -1,17 +1,23 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { withRouter } from 'react-router-dom'
 
-const Header = () => {
+import {
+  AppBar, Toolbar, Typography, Button,
+} from '@material-ui/core'
+
+const Header = ({ history }) => {
   console.log('Header')
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6">
-          Photos
-        </Typography>
+        <Button onClick={() => { history.push('/') }}>
+          <Typography variant="h6">
+            Bank of Kane
+          </Typography>
+        </Button>
       </Toolbar>
     </AppBar>
   )
 }
 
-export default Header
+export default withRouter(Header)
