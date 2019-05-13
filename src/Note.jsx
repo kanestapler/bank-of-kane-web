@@ -1,19 +1,33 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { Typography, Card, CardContent } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
+const styles = theme => ({
+  card: {
+    [theme.breakpoints.down('xs')]: {
+      minWidth: '80%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      minWidth: '30em',
+    },
+    minHeight: '10em',
+    marginTop: '2em',
+  },
+})
 
-const Note = ({ note }) => (
-  <div>
-    <Typography>
-        Name:
-      {' '}
-      {note.name}
-      <br />
-        Amount:
-      {' '}
-      {note.value}
-    </Typography>
-  </div>
+const currencyFormat = num => `$${num.toFixed(2)}`
+
+const Note = ({ note, classes }) => (
+  <Card className={classes.card}>
+    <CardContent>
+      <Typography variant="h4">
+        {note.name}
+      </Typography>
+      <Typography variant="body1">
+        {currencyFormat(note.value)}
+      </Typography>
+    </CardContent>
+  </Card>
 )
 
-export default Note
+export default withStyles(styles)(Note)

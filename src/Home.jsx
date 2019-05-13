@@ -1,22 +1,30 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
 import Database from './database'
 
 import Note from './Note'
 
+const styles = {
+  main: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+}
 
-const Home = () => {
+const Home = ({ classes }) => {
   console.log('Home')
   const bankNotes = Database.useBankNotes()
   const Notes = bankNotes.map(note => (
     <Note key={note.name} note={note} />
   ))
   return (
-    <div>
+    <div className={classes.main}>
       {Notes}
     </div>
   )
 }
 
-export default Home
+export default withStyles(styles)(Home)
