@@ -13,12 +13,15 @@ const styles = theme => ({
     minHeight: '10em',
     marginTop: '2em',
   },
+  totalCard: {
+    background: theme.palette.primary[500],
+  },
 })
 
 const currencyFormat = num => `$${num.toFixed(2)}`
 
 const Note = ({ note, classes }) => (
-  <Card className={classes.card}>
+  <Card className={`${classes.card} ${note.total ? classes.totalCard : null}`}>
     <CardContent>
       <Typography variant="h4">
         {note.name}
