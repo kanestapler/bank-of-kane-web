@@ -24,7 +24,10 @@ const Note = ({ note, classes }) => (
         {note.name}
       </Typography>
       <Typography variant="body1">
-        {currencyFormat(note.value)}
+        {currencyFormat(note.amount)}
+      </Typography>
+      <Typography color="textSecondary">
+        {note.reason}
       </Typography>
     </CardContent>
   </Card>
