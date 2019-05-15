@@ -5,12 +5,9 @@ import Firebase from './firebase'
 // Configure FirebaseUI.
 const uiConfig = {
   signInFlow: 'popup',
-  signInSuccessUrl: '/signedIn',
+  signInSuccessUrl: '/',
   signInOptions: [
     Firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    Firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    Firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    Firebase.auth.GithubAuthProvider.PROVIDER_ID,
     Firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
 }

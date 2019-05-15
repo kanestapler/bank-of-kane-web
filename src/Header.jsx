@@ -27,14 +27,10 @@ const Header = ({ history, classes }) => {
   useEffect(() => {
     Firebase.auth().onAuthStateChanged(
       (x) => {
-        console.log('user', x)
         setUser(x)
       },
     )
   }, [])
-  if (user) {
-    console.log('user2', user)
-  }
 
   const closeMenu = () => {
     setOpen(false)
@@ -46,8 +42,6 @@ const Header = ({ history, classes }) => {
       return (
         <>
           <IconButton
-          // aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-          // aria-haspopup="true"
             onClick={(event) => {
               setOpen(true)
               setMenuAnchor(event.currentTarget)
@@ -72,12 +66,26 @@ const Header = ({ history, classes }) => {
           >
             <MenuItem onClick={closeMenu}>Profile</MenuItem>
             <MenuItem onClick={closeMenu}>My account</MenuItem>
+            <MenuItem
+              onClick={() => {
+                closeMenu()
+                Firebase.auth().signOut()
+              }}
+            >
+              Log Out
+            </MenuItem>
           </Menu>
         </>
       )
     }
     return (
-      <Button color="inherit">Login</Button>
+      <Button
+        onClick={() => {
+          history.push('/signin')
+        }}
+      >
+        Login
+      </Button>
     )
   }
 
