@@ -64,8 +64,14 @@ const Header = ({ history, classes }) => {
             open={open}
             onClose={closeMenu}
           >
-            <MenuItem onClick={closeMenu}>Profile</MenuItem>
-            <MenuItem onClick={closeMenu}>My account</MenuItem>
+            <MenuItem
+              onClick={() => {
+                closeMenu()
+                history.push('/admin')
+              }}
+            >
+              Admin
+            </MenuItem>
             <MenuItem
               onClick={() => {
                 closeMenu()
