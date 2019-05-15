@@ -24,7 +24,7 @@ const Home = ({ classes }) => {
   const bankNotes = Database.useBankNotes()
 
   const getNotes = () => {
-    const notes = bankNotes.filter((note) => {
+    const filteredNotes = bankNotes.filter((note) => {
       if (currentTab === 0 && !note.paid) {
         return note
       }
@@ -32,10 +32,11 @@ const Home = ({ classes }) => {
         return note
       }
       return null
-    }).map(note => (
+    })
+    const notes = filteredNotes.map(note => (
       <Note key={`${note.name}${note.reason}`} note={note} />
     ))
-    const total = bankNotes.reduce((acc, note) => acc + note.amount, 0)
+    const total = filteredNotes.reduce((acc, note) => acc + note.amount, 0)
     notes.push((
       <Note
         key="total"
