@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
-import * as firebase from 'firebase/app'
-import 'firebase/firestore'
-import { firebaseConfig } from './firebaseConfig'
+import firebase from './firebase'
 
-firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 
 const useBankNotes = () => {
