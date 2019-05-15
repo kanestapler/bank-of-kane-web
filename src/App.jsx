@@ -7,6 +7,7 @@ import theme from './Theme'
 import Header from './Header'
 import Home from './Home'
 import Admin from './Admin'
+import SignIn from './SignIn'
 
 import './App.css'
 
@@ -20,6 +21,7 @@ const App = () => (
         <Header />
         <Route path="/" exact component={Home} />
         <Route path="/admin" exact component={Admin} />
+        <Route path="/signin" exact component={SignIn} />
       </Router>
     </MuiThemeProvider>
   </>

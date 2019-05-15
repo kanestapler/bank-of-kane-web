@@ -1,5 +1,12 @@
-import * as firebase from 'firebase/app'
+import firebase from 'firebase/app'
 import 'firebase/firestore'
+import 'firebase/auth'
 import { firebaseConfig } from './firebaseConfig'
 
-export default !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
+console.log('Not in loop')
+if (!firebase.apps.length) {
+  console.log('In the loop')
+  firebase.initializeApp(firebaseConfig)
+}
+
+export default firebase
