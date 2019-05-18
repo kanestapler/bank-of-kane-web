@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import {
-  AppBar, Toolbar, Typography, Button, IconButton, Avatar, Menu, MenuItem,
+  AppBar, Toolbar, Typography, Button, IconButton, Avatar, Menu, MenuItem, Icon,
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+
 
 import Firebase from './firebase'
 import { useUser } from './database'
@@ -17,6 +18,10 @@ const styles = {
   },
   avatar: {
     margin: 10,
+  },
+  homeButton: {
+    marginLeft: -12,
+    marginRight: 20,
   },
 }
 
@@ -40,7 +45,6 @@ const Header = ({ history, classes }) => {
               setOpen(true)
               setMenuAnchor(event.currentTarget)
             }}
-            color="inherit"
           >
             <Avatar alt="Profile" src={user.photoURL} className={classes.avatar} />
           </IconButton>
@@ -96,13 +100,17 @@ const Header = ({ history, classes }) => {
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
-        <div className={classes.grow}>
-          <Button onClick={() => { history.push('/') }}>
-            <Typography variant="h6">
+        <IconButton
+          onClick={() => { history.push('/') }}
+          color="inherit"
+          className={classes.homeButton}
+        >
+          <Icon>home</Icon>
+        </IconButton>
+
+        <Typography variant="h6" className={classes.grow}>
             Bank of Kane
-            </Typography>
-          </Button>
-        </div>
+        </Typography>
         <div>
           {getLoginButton()}
         </div>
