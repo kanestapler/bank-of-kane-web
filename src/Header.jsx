@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import {
   AppBar, Toolbar, Typography, Button, IconButton, Avatar, Menu, MenuItem,
@@ -6,6 +6,7 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 
 import Firebase from './firebase'
+import { useUser } from './database'
 
 const styles = {
   root: {
@@ -21,16 +22,9 @@ const styles = {
 
 const Header = ({ history, classes }) => {
   console.log('Header')
-  const [user, setUser] = useState(null)
+  const user = useUser()
   const [open, setOpen] = useState(false)
   const [menuAnchor, setMenuAnchor] = useState(null)
-  useEffect(() => {
-    Firebase.auth().onAuthStateChanged(
-      (x) => {
-        setUser(x)
-      },
-    )
-  }, [])
 
   const closeMenu = () => {
     setOpen(false)
@@ -64,14 +58,18 @@ const Header = ({ history, classes }) => {
             open={open}
             onClose={closeMenu}
           >
-            <MenuItem
-              onClick={() => {
-                closeMenu()
-                history.push('/admin')
-              }}
-            >
-              Admin
-            </MenuItem>
+            {
+              user.admin ? (
+                <MenuItem
+                  onClick={() => {
+                    closeMenu()
+                    history.push('/admin')
+                  }}
+                >
+                Admin
+                </MenuItem>
+              ) : null
+            }
             <MenuItem
               onClick={() => {
                 closeMenu()

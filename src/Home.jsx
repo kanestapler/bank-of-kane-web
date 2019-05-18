@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 
-import Database from './database'
+import { useBankNotes } from './database'
 
 import Note from './Note'
 import BottomNav from './BottomNav'
@@ -21,7 +21,7 @@ const styles = {
 const Home = ({ classes }) => {
   console.log('Home')
   const [currentTab, setCurrentTab] = useState(0)
-  const bankNotes = Database.useBankNotes()
+  const bankNotes = useBankNotes()
 
   const getNotes = () => {
     const filteredNotes = bankNotes.filter((note) => {
@@ -34,7 +34,7 @@ const Home = ({ classes }) => {
       return null
     })
     const notes = filteredNotes.map(note => (
-      <Note key={`${note.name}${note.reason}`} note={note} />
+      <Note key={note.id} note={note} />
     ))
     const total = filteredNotes.reduce((acc, note) => acc + note.amount, 0)
     notes.push((
