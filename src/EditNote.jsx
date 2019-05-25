@@ -69,12 +69,13 @@ const EditNote = ({ match, classes, history }) => {
         <TextField
           id="amount"
           label="Amount"
+          type="number"
           className={classes.textField}
           value={note.amount}
           onChange={(event) => {
             setNote({
               ...note,
-              amount: event.target.value,
+              amount: Number(event.target.value),
             })
           }}
           margin="normal"
