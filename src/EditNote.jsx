@@ -31,7 +31,6 @@ const VARIANT = 'outlined'
 
 const EditNote = ({ match, classes, history }) => {
   const { noteId } = match.params
-  console.log('Edit Note')
   const user = useUser()
   const [note, setNote] = useBankNote(noteId)
   if (!user) {

@@ -13,7 +13,6 @@ const styles = {
 }
 
 const BottomNav = ({ classes, onChange }) => {
-  console.log('BottomNav')
   const [currentTab, setCurrentTab] = useState(0)
   return (
     <BottomNavigation

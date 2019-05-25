@@ -5,7 +5,6 @@ import { useUser, useBankNotes } from './database'
 import NotesTable from './NotesTable'
 
 const Admin = () => {
-  console.log('Admin')
   const user = useUser()
   const notes = useBankNotes()
   if (!user) {

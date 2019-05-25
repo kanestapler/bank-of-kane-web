@@ -19,7 +19,6 @@ const styles = {
 }
 
 const Home = ({ classes }) => {
-  console.log('Home')
   const [currentTab, setCurrentTab] = useState(0)
   const bankNotes = useBankNotes()
 

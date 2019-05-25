@@ -18,7 +18,6 @@ const styles = theme => ({
 })
 
 const SignedIn = ({ classes, history }) => {
-  console.log('Signed In')
   useEffect(() => {
     Firebase.auth().onAuthStateChanged((user) => {
       if (user) {

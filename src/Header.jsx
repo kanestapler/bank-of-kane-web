@@ -26,7 +26,6 @@ const styles = {
 }
 
 const Header = ({ history, classes }) => {
-  console.log('Header')
   const user = useUser()
   const [open, setOpen] = useState(false)
   const [menuAnchor, setMenuAnchor] = useState(null)

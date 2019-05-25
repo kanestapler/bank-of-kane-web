@@ -20,45 +20,42 @@ const styles = theme => ({
   },
 })
 
-const NotesTable = ({ notes, classes }) => {
-  console.log('Notes Table')
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Amount</TableCell>
-            <TableCell>Completed</TableCell>
-            <TableCell>Description</TableCell>
-            <TableCell>Edit Note</TableCell>
+const NotesTable = ({ notes, classes }) => (
+  <Paper className={classes.root}>
+    <Table className={classes.table}>
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+          <TableCell>Amount</TableCell>
+          <TableCell>Completed</TableCell>
+          <TableCell>Description</TableCell>
+          <TableCell>Edit Note</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {notes.map(note => (
+          <TableRow key={`${note.name}${note.reason}`}>
+            <TableCell>
+              {note.name}
+            </TableCell>
+            <TableCell>
+              {note.amount}
+            </TableCell>
+            <TableCell>
+              {note.paid ? 'Yes' : 'No'}
+            </TableCell>
+            <TableCell>
+              {note.reason}
+            </TableCell>
+            <TableCell>
+              <Link className={classes.link} to={`/edit/${note.id}`}>Edit</Link>
+            </TableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
-          {notes.map(note => (
-            <TableRow key={`${note.name}${note.reason}`}>
-              <TableCell>
-                {note.name}
-              </TableCell>
-              <TableCell>
-                {note.amount}
-              </TableCell>
-              <TableCell>
-                {note.paid ? 'Yes' : 'No'}
-              </TableCell>
-              <TableCell>
-                {note.reason}
-              </TableCell>
-              <TableCell>
-                <Link className={classes.link} to={`/edit/${note.id}`}>Edit</Link>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-  )
-}
+        ))}
+      </TableBody>
+    </Table>
+  </Paper>
+)
 
 NotesTable.defaultProps = {
   notes: [],

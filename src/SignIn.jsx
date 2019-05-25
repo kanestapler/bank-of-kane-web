@@ -12,11 +12,8 @@ const uiConfig = {
   ],
 }
 
-const SignIn = () => {
-  console.log('Sign In')
-  return (
-    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={Firebase.auth()} />
-  )
-}
+const SignIn = () => (
+  <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={Firebase.auth()} />
+)
 
 export default SignIn
